@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="static/markAttendancehome/css/styles.css">
+
+    <title>HOME</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">AMS</a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="static/markAttendancehome/img/2.png" alt="">
+                    </div>
+
+                    <div>
+                        <a href="#" class="nav__name">AMS</a>
+                        <span class="nav__profesion">Attendace Management System</span>
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Class Names</h2>
+        <div class="btns">
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c1">CLASS 1</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c1">CLASS 2</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c1">CLASS 3</button><br>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c2">CLASS 4</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c2">CLASS 5</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c2">CLASS 6</button><br>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c3">CLASS 7</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c3">CLASS 8</button>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c3">CLASS 9</button><br>
+            <button type="button" onclick=location.href="{% url 'attendance_submit' %}" class="btnss" id="c4">CLASS 10</button>
+        </div>
+    </div>
+    </div>
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="static/index/js/main.js"></script>
+</body>
+
+</html>

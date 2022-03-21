@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="static/timetablehome/css/styles.css">
+
+    <title>HOME</title>
+    <style>
+        .btn-group input {
+            background-color: #2552cc;
+            color: white;
+            padding: 10px 24px;
+            cursor: pointer;
+            border: 2px solid hsl(273, 80%, 14%);
+        }
+        
+        .btn-group {
+            text-align: center;
+        }
+        
+        .btn-group:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .btn-group input:hover {
+            background-color: hsl(61, 75%, 58%);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">AMS</a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="static/markAttendancehome/img/2.png" alt="">
+                    </div>
+
+                    <div>
+                        <a href="#" class="nav__name">AMS</a>
+                        <span class="nav__profesion">Attendace Management System</span>
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Class Names</h2>
+        <div class="btn-group"><br><br><br><br>
+            <form action="table">
+                <input type="submit" value="Class 1" style="width:50% ;"><br><br>
+                <input type="submit" value="Class 2" style="width:50%;"><br><br>
+                <input type="submit" value="Class 3" style="width:50%;"><br><br>
+                <input type="submit" value="Class 4" style="width:50%;"><br><br>
+                <input type="submit" value="Class 5" style="width:50%;"><br><br>
+                <input type="submit" value="Class 6" style="width:50%;"><br><br>
+                <input type="submit" value="Class 7" style="width:50%;"><br><br>
+                <input type="submit" value="Class 8" style="width:50%;"><br><br>
+                <input type="submit" value="Class 9" style="width:50%;"><br><br>
+                <input type="submit" value="Class 10" style="width:50%;"><br><br>
+                <input type="submit" value="Class 11" style="width:50%;"><br><br>
+                <input type="submit" value="Class 12" style="width:50%;"><br><br>
+            </form>
+        </div>
+    </div>
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="static/timetablehome/js/main.js"></script>
+</body>
+
+</html>

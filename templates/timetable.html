@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="static/timetable/css/styles.css">
+
+    <title>HOME</title>
+    <style>
+        .z {
+            background-color: hsl(273, 80%, 14%);
+            color: azure;
+        }
+        
+        table {
+            background: rgba(233, 209, 136, 0.836);
+            animation: Slide_Up 0.8s ease;
+        }
+        /* CSS */
+        
+        .button-55 input {
+            align-self: center;
+            background-color: #fff;
+            background-image: none;
+            background-position: 0 90%;
+            background-repeat: repeat no-repeat;
+            background-size: 4px 3px;
+            border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+            border-style: solid;
+            border-width: 2px;
+            box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+            box-sizing: border-box;
+            color: #41403e;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Neucha, sans-serif;
+            font-size: 1rem;
+            line-height: 23px;
+            outline: none;
+            padding: .75rem;
+            text-decoration: none;
+            transition: all 235ms ease-in-out;
+            border-bottom-left-radius: 15px 255px;
+            border-bottom-right-radius: 225px 15px;
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        
+        .button-55 input:hover {
+            box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+            transform: translate3d(0, 2px, 0);
+            background-color: hsl(273, 80%, 14%);
+            color: #fff;
+        }
+        
+        .button-55 input:focus {
+            box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">AMS</a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="static/timetable/img/2.png" alt="">
+                    </div>
+
+                    <div>
+                        <a href="#" class="nav__name">AMS</a>
+                        <span class="nav__profesion">Attendace Management System</span>
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <center>
+            <h2>CLASS-1 TIME TABLE</h2>
+        </center>
+        <table border="5" cellspacing="0" align="center">
+            <!--<caption>Timetable</caption>-->
+
+            <tr>
+                <td align="center" height="50" width="100" class="z"><br>
+                    <b>Day/Period</b></br>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>I<br>9:30-10:20</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>II<br>10:20-11:10</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>III<br>11:10-12:00</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>12:00-12:40</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>IV<br>12:40-1:30</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>V<br>1:30-2:20</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>VI<br>2:20-3:10</b>
+                </td>
+                <td align="center" height="50" width="100" class="z">
+                    <b>VII<br>3:10-4:00</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Monday</b></td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">Mat</td>
+                <td align="center" height="50">Science</td>
+                <td rowspan="6" align="center" height="50">
+                    <h2>L<br>U<br>N<br>C<br>H</h2>
+                </td>
+                <td colspan="3" align="center" height="50">LAB</td>
+                <td align="center" height="50">Hindi</td>
+            </tr>
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Tuesday</b>
+                </td>
+                <td colspan="3" align="center" height="50">Math LAB
+                </td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">Science</td>
+                <td align="center" height="50">Math</td>
+                <td align="center" height="50">SPORTS</td>
+            </tr>
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Wednesday</b>
+                </td>
+                <td align="center" height="50">Math</td>
+                <td align="center" height="50">Science</td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">Science</td>
+                <td colspan="3" align="center" height="50">LIBRARY
+                </td>
+            </tr>
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Thursday</b>
+                </td>
+                <td align="center" height="50">Science</td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">SPORTS</td>
+                <td colspan="3" align="center" height="50">Math LAB
+                </td>
+                <td align="center" height="50">Mat</td>
+            </tr>
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Friday</b>
+                </td>
+                <td colspan="3" align="center" height="50">Math LAB
+                </td>
+                <td align="center" height="50">Mat</td>
+                <td align="center" height="50">Science</td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">Hindi</td>
+            </tr>
+            <tr>
+                <td align="center" height="50" class="z">
+                    <b>Saturday</b>
+                </td>
+                <td align="center" height="50">Eng</td>
+                <td align="center" height="50">Science</td>
+                <td align="center" height="50">Mat</td>
+                <td colspan="3" align="center" height="50">Science LAB
+                </td>
+                <td align="center" height="50">SPORTS</td>
+            </tr>
+        </table>
+        <br>
+        <center>
+            <div class="button-55">
+                <form action="timetablehome.html">
+                    <input type="submit" value="GO BACK"><br><br></form>
+            </div>
+        </center>
+    </div>
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="static/index/js/main.js"></script>
+</body>
+
+</html>

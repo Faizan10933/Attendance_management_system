@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{% static 'markAttendance/css/styles.css' %}">
+
+    <style>
+        .inputGroup{
+            color: cyan;
+            font-weight: bold;
+        }
+    </style>
+
+    <title>HOME</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">AMS</a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="static/markattendance/img/2.png" alt="">
+                    </div>
+
+                    <div>
+                        <a href="#" class="nav__name">AMS</a>
+                        <span class="nav__profesion">Attendace Management System</span>
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <br><br><br><br><br><br>
+    <div class="container">
+        <form method="POST" action="/teacherhome">
+            {% csrf_token %}
+            {% comment %} <table class="table" border="1">
+                <th>Student name</th>
+                <th>Present</th>
+                <th>Absent</th> {% endcomment %}
+                {% for stud in student  %}
+                {% comment %} <tr>
+                    <td name="name">{{ stud.name }}</td>
+                    <td><input type="radio" name="{{stud.name}}" /></td>
+                    <td><input type="radio" name="{{stud.name}}" /></td>
+                </tr> {% endcomment %}
+                <div class="inputGroup">
+                    <input checked id="{{ stud }}" type="checkbox" name="present" value="{{ stud }}"/>
+                    <label for="{{ stud }}">{{ name }}  [{{ stud }}]</label>
+                </div>
+
+                {% endfor %}
+            <div class="btn">
+                <button type="submit" class="submit">Submit</button>
+                <button type="reset" class="reset">Reset</button><br><br>
+                <button type="button" class="reset" onclick="window.location.href='markattendancehome.html' ">back</button>
+
+
+            </div>
+        </form>
+    </div>
+    </div>
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="static/index/js/main.js"></script>
+</body>
+
+</html>

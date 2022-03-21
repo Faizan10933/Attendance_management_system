@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'attendtaking/css/styles.css' %}">
+
+    <title>Teachers tab</title>
+</head>
+
+<body>
+    <!--=============== NAV ===============-->
+    <nav class="nav" id="nav">
+        <div class="nav__menu container" id="nav-menu">
+            <div class="nav__shape"></div>
+
+            <div class="nav__close" id="nav-close">
+                <i class='bx bx-x'></i>
+            </div>
+
+            <div class="nav__data">
+                <div class="nav__mask">
+                    <!-- Change your profile picture -->
+                    <img src="static/attendtaking/img/2.png" alt="" class="nav__img">
+                </div>
+
+                <span class="nav__greeting"></span>
+                <h1 class="nav__name">AMS <br></h1>
+            </div>
+
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="home.html" class="nav__link ">
+                        <i class='bx bx-home'></i> Home
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="teachershome.html" class="nav__link active-link">
+                        <i class='bx bx-briefcase-alt-2'></i> Attendance
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-bookmark'></i> View Attendance
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-user'></i> Login
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-user'></i> Logout
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class='bx bx-message-square-detail'></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main" id="main" style="background: url('static/1.jpg');background-attachment:fixed; background-size: cover;">
+        <header class="header" id="header">
+
+            <nav class="header__nav container">
+                <a href="#" class="header__logo">
+                        Attendance Management System
+                    </a>
+
+                <div class="header__toggle" id="header-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <section class="section section__height container" id="home">
+            <div class="head" name="classname">
+                Class Name
+            </div>
+            <form method="POST" action="/teacherhome">
+                {% csrf_token %}
+                {% comment %} <table class="table" border="1">
+                    <th>Student name</th>
+                    <th>Present</th>
+                    <th>Absent</th> {% endcomment %}
+                    {% for stud in student  %}
+                    {% comment %} <tr>
+                        <td name="name">{{ stud.name }}</td>
+                        <td><input type="radio" name="{{stud.name}}" /></td>
+                        <td><input type="radio" name="{{stud.name}}" /></td>
+                    </tr> {% endcomment %}
+                    <div class="inputGroup">
+                        <input checked id="{{ stud }}" type="checkbox" name="present" value="{{ stud }}"/>
+                        <label for="{{ stud }}">{{ name }}  [{{ stud }}]</label>
+                    </div>
+
+                    {% endfor %}
+
+                    {% comment %} <tr>
+                        <td>Student2</td>
+                        <td><input type="radio" name="r2" /></td>
+                        <td><input type="radio" name="r2" /></td>
+                    </tr>
+                    <tr>
+                        <td>Student3</td>
+                        <td><input type="radio" name="r3" /></td>
+                        <td><input type="radio" name="r3" /></td>
+                    </tr>
+                    <tr>
+                        <td>Student4</td>
+                        <td><input type="radio" name="r4" /></td>
+                        <td><input type="radio" name="r4" /></td>
+                    </tr> {% endcomment %}
+
+                </table>
+                <div class="btn">
+                    <button type="submit" class="submit">Submit</button>
+                    <button type="reset" class="reset">Reset</button>
+
+                </div>
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="{% static 'attendtaking/js/main.js' %}"></script>
+</body>
+
+</html>

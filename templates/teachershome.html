@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'teachershome/css/styles.css' %}">
+
+    <title>Teachers tab</title>
+</head>
+
+<body>
+    <!--=============== NAV ===============-->
+    <nav class="nav" id="nav">
+        <div class="nav__menu container" id="nav-menu">
+            <div class="nav__shape"></div>
+
+            <div class="nav__close" id="nav-close">
+                <i class='bx bx-x'></i>
+            </div>
+
+            <div class="nav__data">
+                <div class="nav__mask">
+                    <!-- Change your profile picture -->
+                    <img src="static/teachershome/img/2.png" alt="" class="nav__img">
+                </div>
+
+                <span class="nav__greeting"></span>
+                <h1 class="nav__name">AMS <br></h1>
+            </div>
+
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="home.html" class="nav__link ">
+                        <i class='bx bx-home'></i> Home
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="teachershome.html" class="nav__link active-link">
+                        <i class='bx bx-briefcase-alt-2'></i> Attendance
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-bookmark'></i> View Attendance
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-user'></i> Login
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="" class="nav__link">
+                        <i class='bx bx-user'></i> Logout
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class='bx bx-message-square-detail'></i> Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main" id="main" style="background: url('static/1.jpg');background-attachment:fixed; background-size: cover;">
+        <header class="header" id="header">
+
+            <nav class="header__nav container">
+                <a href="#" class="header__logo">
+                        Attendance Management System
+                    </a>
+
+                <div class="header__toggle" id="header-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <section class="section section__height container" id="home">
+            <div class="head">
+                Class Names
+            </div>
+            <div class="btns">
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c1">CLASS 1</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c1">CLASS 2</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c1">CLASS 3</button><br>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c2">CLASS 4</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c2">CLASS 5</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c2">CLASS 6</button><br>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c3">CLASS 7</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c3">CLASS 8</button>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c3">CLASS 9</button><br>
+                <button type="button" onclick="window.location.href='attentaking.html' " class="btnss" id="c4">CLASS 10</button>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{% static 'teachershome/js/main.js' %}"></script>
+</body>
+
+</html>

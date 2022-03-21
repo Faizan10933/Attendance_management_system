@@ -1,4 +1,5 @@
 from msilib.schema import Class
+from pickle import TRUE
 from pyexpat import model
 from django.db import models
 from numpy import number, roll
@@ -12,7 +13,6 @@ class Classname(models.Model):
     def __str__(self):
         return self.classno
 
-# Create your models here.
 
 class Student(models.Model):
     
@@ -27,11 +27,13 @@ class Student(models.Model):
 
 
 class Attendance(models.Model):
-    classname = models.ForeignKey('Classname', on_delete=models.CASCADE)
-    faculty = models.ForeignKey('Faculty', on_delete=models.CASCADE)
-    roll = models.ForeignKey('Student', on_delete=models.CASCADE, db_column='usn')
-    current_attendance = models.IntegerField(null=False, default=0)
-    percent = models.IntegerField(null=False, default=0)
+    # classname = models.ForeignKey('Classname', on_delete=models.CASCADE)
+    # faculty = models.ForeignKey('Faculty', on_delete=models.CASCADE)
+    # roll = models.ForeignKey('Student', on_delete=models.CASCADE, db_column='usn')
+    # attend = models.ManyToManyField(Student, related_name='attendedstudent', blank=True)
+    attendrecord = models.CharField(max_length=40, default=None)
+    # current_attendance = models.IntegerField(null=False, default=0)
+    # percent = models.IntegerField(null=False, default=0)
 
     def __str___(self):
         return self.roll
