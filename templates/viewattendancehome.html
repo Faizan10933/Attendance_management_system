@@ -67,8 +67,18 @@
                         <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
                         <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
                         <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+
+                        {% if request.user.is_authenticated %}
+                        
+
+                        <li class="nav__item"><a href="{% url 'logout' %}" class="nav__link">Logout</a></li>
+                        <span style="color:cyan;">@{{request.user.username}}</span>
+
+
+                        {% else %}
+                        <li class="nav__item"><a href="{% url 'login' %}" class="nav__link">Login</a></li>
+
+                        {% endif %}
 
                     </ul>
                 </div>

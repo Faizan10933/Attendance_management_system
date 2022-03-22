@@ -10,5 +10,7 @@ urlpatterns = [
     path('viewattend',views.viewattend, name="viewattend"),
     path('timetable',views.timetable, name="timetable"),
     path('table',views.table, name="table"),
+    path('login/', views.loginPage, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
 
 ]

@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from numpy import roll
 from .models import Student, Attendance
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='/login')
 def attendance_submit(request):
     
     # attendees = request.POST.getlist('present')
@@ -19,10 +23,11 @@ def attendance_submit(request):
     context={'student': student}
     return render(request, 'markattendance.html', context)
 
-
+@login_required(login_url='/login')
 def home(request):
     return render(request, 'index.html')
 
+@login_required(login_url='/login')
 def teacherhome(request):
     if request.method == "POST":
         # classname = request.POST.get('classname')
@@ -47,6 +52,7 @@ def teacherhome(request):
     # student =  Student.objects.all()
     return render(request, 'markattendancehome.html')
 
+@login_required(login_url='/login')
 def attendance(request):
     if request.method=="POST":
         classname = request.POST.get('classname')
@@ -59,22 +65,51 @@ def attendance(request):
 
 
 
-
+@login_required(login_url='/login')
 def viewattendance(request):
     return render(request, 'viewattendancehome.html')
 
 
-
+@login_required(login_url='/login')
 def timetable(request):
     return render(request, 'timetablehome.html')
 
-
+@login_required(login_url='/login')
 def viewattend(request):
     return render(request, 'viewattendance.html')
 
-
+@login_required(login_url='/login')
 def table(request):
     return render(request, 'timetable.html')
+
+
+def loginPage(request):
+    page='login'
+    if request.user.is_authenticated:
+        return redirect('home')
+    
+    if request.method=='POST':
+        username=request.POST.get('username').lower()
+        password=request.POST.get('password')
+        try:
+            user= User.objects.get(username=username)
+        except:
+            messages.error(request, 'User does not exists')
+
+        user=authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'username or password not exists')
+
+    context={'page': page}
+    return render(request,'login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
 
 
 # Create your views here.
