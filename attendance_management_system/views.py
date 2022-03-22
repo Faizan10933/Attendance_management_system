@@ -23,7 +23,7 @@ def attendance_submit(request):
     context={'student': student}
     return render(request, 'markattendance.html', context)
 
-@login_required(login_url='/login')
+
 def home(request):
     return render(request, 'index.html')
 
