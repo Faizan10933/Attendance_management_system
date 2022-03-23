@@ -27,7 +27,8 @@ class Student(models.Model):
 
 
 class Attendance(models.Model):
-    # classname = models.ForeignKey('Classname', on_delete=models.CASCADE)
+    classname = models.ForeignKey('Classname', on_delete=models.CASCADE, default=None, null=True)
+    # classname = models.CharField(max_length=40, default=None, null=True)
     # faculty = models.ForeignKey('Faculty', on_delete=models.CASCADE)
     # roll = models.ForeignKey('Student', on_delete=models.CASCADE, db_column='usn')
     # attend = models.ManyToManyField(Student, related_name='attendedstudent', blank=True)

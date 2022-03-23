@@ -2,12 +2,20 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="static/markAttendancehome/css/styles.css">
+    <link rel="stylesheet" href="{% static 'markAttendance/css/styles.css' %}">
+
+    <style>
+        .inputGroup{
+            color: cyan;
+            font-weight: bold;
+        }
+    </style>
 
     <title>HOME</title>
 </head>
@@ -25,7 +33,7 @@
 
                 <div class="nav__perfil">
                     <div class="nav__img">
-                        <img src="static/markAttendancehome/img/2.png" alt="">
+                        <img src="static/markattendance/img/2.png" alt="">
                     </div>
 
                     <div>
@@ -55,24 +63,40 @@
 
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
+    <br><br><br><br><br><br>
     <div class="container">
-        <h2>Class Names</h2>
-        <div class="btns">
-            <button type="button" onclick=location.href="{% url 'one' %}" class="btnss" id="c1">CLASS 1</button>
-            <button type="button" onclick=location.href="{% url 'two' %}" class="btnss" id="c1">CLASS 2</button>
-            <button type="button" onclick=location.href="{% url 'three' %}" class="btnss" id="c1">CLASS 3</button><br>
-            <button type="button" onclick=location.href="{% url 'four' %}" class="btnss" id="c2">CLASS 4</button>
-            <button type="button" onclick=location.href="{% url 'five' %}" class="btnss" id="c2">CLASS 5</button>
-            <button type="button" onclick=location.href="{% url 'six' %}" class="btnss" id="c2">CLASS 6</button><br>
-            <button type="button" onclick=location.href="{% url 'seven' %}" class="btnss" id="c3">CLASS 7</button>
-            <button type="button" onclick=location.href="{% url 'eight' %}" class="btnss" id="c3">CLASS 8</button>
-            <button type="button" onclick=location.href="{% url 'nine' %}" class="btnss" id="c3">CLASS 9</button><br>
-            <button type="button" onclick=location.href="{% url 'ten' %}" class="btnss" id="c4">CLASS 10</button>
-        </div>
+        <form method="POST" action="/teacherhome">
+            {% csrf_token %}
+            {% comment %} <table class="table" border="1">
+                <th>Student name</th>
+                <th>Present</th>
+                <th>Absent</th> {% endcomment %}
+                {% for cs in classname %}
+                <h1 style="color:red;">Class {{cs.classno}}</h1>
+                {% endfor %}}
+                {% for stud in student  %}
+                {% comment %} <tr>
+                    <td name="name">{{ stud.name }}</td>
+                    <td><input type="radio" name="{{stud.name}}" /></td>
+                    <td><input type="radio" name="{{stud.name}}" /></td>
+                </tr> {% endcomment %}
+                <div class="inputGroup">
+                    <input checked id="{{ stud }}" type="checkbox" name="present" value="{{ stud }}"/>
+                    <label for="{{ stud }}">{{ name }}  [{{ stud }}]</label>
+                </div>
+
+                {% endfor %}
+            <div class="btn">
+                <button type="submit" class="submit">Submit</button>
+                <button type="reset" class="reset">Reset</button><br><br>
+                <button type="button" class="reset" onclick="window.location.href='markattendancehome.html' ">back</button>
+
+
+            </div>
+        </form>
     </div>
     </div>
     <!-- ===== IONICONS ===== -->

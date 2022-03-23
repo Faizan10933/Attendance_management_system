@@ -1,14 +1,16 @@
+from pydoc import classname
+from unicodedata import name
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from numpy import roll
-from .models import Student, Attendance
+from .models import Classname, Student, Attendance
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login')
-def attendance_submit(request):
+def one(request):
     
     # attendees = request.POST.getlist('present')
     # no_of_attendees = len(attendees)
@@ -19,9 +21,84 @@ def attendance_submit(request):
     #     attendance.current_attendance += 1
     #     attendance.save()
     
-    student =  Student.objects.all()
-    context={'student': student}
+    student =  Student.objects.filter(classname=1)
+    classname = Classname.objects.filter(classno=1)
+    context={'student': student, 'classname': classname}
     return render(request, 'markattendance.html', context)
+
+@login_required(login_url='/login')
+def two(request):
+    
+    student =  Student.objects.filter(classname=2)
+    classname = Classname.objects.filter(classno=2)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class2.html', context)
+
+@login_required(login_url='/login')
+def three(request):
+    
+    student =  Student.objects.filter(classname=3)
+    classname = Classname.objects.filter(classno=3)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class3.html', context)
+
+@login_required(login_url='/login')
+def four(request):
+    
+    student =  Student.objects.filter(classname=4)
+    classname = Classname.objects.filter(classno=4)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class4.html', context)
+
+@login_required(login_url='/login')
+def five(request):
+    
+    student =  Student.objects.filter(classname=5)
+    classname = Classname.objects.filter(classno=5)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class5.html', context)
+
+@login_required(login_url='/login')
+def six(request):
+    
+    student =  Student.objects.filter(classname=6)
+    classname = Classname.objects.filter(classno=6)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class6.html', context)
+
+@login_required(login_url='/login')
+def seven(request):
+    
+    student =  Student.objects.filter(classname=7)
+    classname = Classname.objects.filter(classno=7)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class7.html', context)
+
+@login_required(login_url='/login')
+def eight(request):
+    
+    student =  Student.objects.filter(classname=8)
+    classname = Classname.objects.filter(classno=8)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class8.html', context)
+
+@login_required(login_url='/login')
+def nine(request):
+    
+    student =  Student.objects.filter(classname=9)
+    classname = Classname.objects.filter(classno=9)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class9.html', context)
+
+@login_required(login_url='/login')
+def ten(request):
+    
+    student =  Student.objects.filter(classname=10)
+    classname = Classname.objects.filter(classno=10)
+    context={'student': student, 'classname': classname}
+    return render(request, 'class10.html', context)
+
+
 
 
 def home(request):
@@ -55,7 +132,7 @@ def teacherhome(request):
 @login_required(login_url='/login')
 def attendance(request):
     if request.method=="POST":
-        classname = request.POST.get('classname')
+        classname = Student.objects.get()
         attend = request.POST.getlist('present')
 
         attendance = Attendance(classname=classname, attend=attend)
