@@ -75,7 +75,8 @@
                 <th>Present</th>
                 <th>Absent</th> {% endcomment %}
                 {% for cs in classname %}
-                <h1 style="color:red;">Class {{cs.classno}}</h1>
+                <h1 style="color:red;" name="clname">{{cs.classno}}</h1>
+                <input type="hidden" value="{{ cs.classno }}" name="var">
                 {% endfor %}
                 {% for stud in student  %}
                 {% comment %} <tr>
@@ -84,8 +85,9 @@
                     <td><input type="radio" name="{{stud.name}}" /></td>
                 </tr> {% endcomment %}
                 <div class="inputGroup">
-                    <input checked id="{{ stud }}" type="checkbox" name="present" value="{{ stud }}"/>
-                    <label for="{{ stud }}">{{ name }}  [{{ stud }}]</label>
+                    
+                    <input checked id="{{ stud }}" type="checkbox" name="present" value="{{ stud.roll }}"/>
+                    <label for="{{ stud }}">{{ stud.roll }}  [{{ stud }}]</label>
                 </div>
 
                 {% endfor %}

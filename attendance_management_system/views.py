@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 @login_required(login_url='/login')
 def one(request):
@@ -114,13 +115,9 @@ def teacherhome(request):
         for c in request.POST.getlist('present'):
             lst.append(c)
         print(lst)
-        # Attendance.attend.add(lst)
-                # try:
-                #     Attendance.objects.get(classname=classname).attend.add(c)
-                # except Attendance.DoesNotExist:
-                #     classname = None
-            # attendance = Attendance(classname=classname, attend=lst)
-        attendance = Attendance(attendrecord=lst)
+        classname = request.POST.get('var')
+        print(classname)
+        attendance = Attendance(attendrecord=lst, classname=classname, date= datetime.today())
         
         # attendance.attend.set(attend)
 
@@ -132,11 +129,11 @@ def teacherhome(request):
 @login_required(login_url='/login')
 def attendance(request):
     if request.method=="POST":
-        classname = Student.objects.get()
+        classname = request.POST.get('var')
         attend = request.POST.getlist('present')
 
         attendance = Attendance(classname=classname, attend=attend)
-
+        print(classname)
         attendance.save()
     return render(request, 'home.html')
 
