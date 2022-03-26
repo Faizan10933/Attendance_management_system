@@ -25,7 +25,7 @@ def one(request):
     student =  Student.objects.filter(classname=1)
     classname = Classname.objects.filter(classno=1)
     context={'student': student, 'classname': classname}
-    return render(request, 'markattendance.html', context)
+    return render(request, 'class1.html', context)
 
 @login_required(login_url='/login')
 def two(request):
@@ -149,8 +149,12 @@ def timetable(request):
     return render(request, 'timetablehome.html')
 
 @login_required(login_url='/login')
-def viewattend(request):
-    return render(request, 'viewattendance.html')
+def viewattend(request, pk):
+
+    classname = Attendance.objects.filter(classname=pk)
+    # roll = Attendance.attendrecord.all()
+    context={'classname': classname}
+    return render(request, 'viewattendance.html', context)
 
 @login_required(login_url='/login')
 def table(request):

@@ -63,9 +63,9 @@
 
                 <div class="nav__menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link">Home</a></li>
                         <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
-                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link  active">View Attendace</a></li>
                         <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
 
                         {% if request.user.is_authenticated %}
@@ -88,24 +88,24 @@
         <h2>Class Names</h2>
         <table>
             <tr>
-                <td><input type="button" name="class1" value="Class-1" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class2" value="Class-2" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class3" value="Class-3" onclick=location.href="{% url 'viewattend' %}";></td>
+                <td><input type="button" name="class1" value="Class-1" onclick=location.href="viewattend/1";></td>
+                <td><input type="button" name="class2" value="Class-2" onclick=location.href="viewattend/2";></td>
+                <td><input type="button" name="class3" value="Class-3" onclick=location.href="viewattend/3";></td>
             </tr>
             <tr>
-                <td><input type="button" name="class4" value="Class-4" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class5" value="Class-5" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class6" value="Class-6" onclick=location.href="{% url 'viewattend' %}";></td>
+                <td><input type="button" name="class4" value="Class-4" onclick=location.href="viewattend/4";></td>
+                <td><input type="button" name="class5" value="Class-5" onclick=location.href="viewattend/5";></td>
+                <td><input type="button" name="class6" value="Class-6" onclick=location.href="viewattend/6";></td>
             </tr>
             <tr>
-                <td><input type="button" name="class7" value="Class-7" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class8" value="Class-8" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class9" value="Class-9" onclick=location.href="{% url 'viewattend' %}";></td>
+                <td><input type="button" name="class7" value="Class-7" onclick=location.href="viewattend/7";></td>
+                <td><input type="button" name="class8" value="Class-8" onclick=location.href="viewattend/8";></td>
+                <td><input type="button" name="class9" value="Class-9" onclick=location.href="viewattend/9";></td>
             </tr>
             <tr>
-                <td><input type="button" name="class10" value="Class-10" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class11" value="Class-11" onclick=location.href="{% url 'viewattend' %}";></td>
-                <td><input type="button" name="class12" value="Class-12" onclick=location.href="{% url 'viewattend' %}";></td>
+                <td><input type="button" name="class10" value="Class-10" onclick=location.href="viewattend/10";></td>
+                {% comment %} <td><input type="button" name="class11" value="Class-11" onclick=location.href="{% url 'viewattend' %}";></td>
+                <td><input type="button" name="class12" value="Class-12" onclick=location.href="{% url 'viewattend' %}";></td> {% endcomment %}
             </tr>
         </table>
     </div>

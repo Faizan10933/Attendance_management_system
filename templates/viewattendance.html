@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="static/viewattendance/css/styles.css">
+    <link rel="stylesheet" href="{% static '/viewattendance/css/styles.css' %}">
 
     <title>HOME</title>
 </head>
@@ -36,9 +36,9 @@
 
                 <div class="nav__menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link">Home</a></li>
                         <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
-                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
+                        <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link active">View Attendace</a></li>
                         <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
 
                         {% if request.user.is_authenticated %}
@@ -63,16 +63,18 @@
         <h2>Attendance of students</h2>
         <table class="table">
             <tr>
-                <th>Roll Number</th>
-                <th>Current Attendance</th>
-                <th>Percentage</th>
+                {% comment %} <th>Roll Number</th> {% endcomment %}
+                <th>Attendance</th>
+                <th>Date</th>
             </tr>
+            {% for view in classname %}
             <tr>
-                <td>001</td>
-                <td>40</td>
-                <td>100%</td>
+                
+                <td>{{view.attendrecord}}</td>
+                <td>{{view.date}}</td>
             </tr>
-            <tr>
+            {% endfor %}
+            {% comment %} <tr>
                 <td>002</td>
                 <td>20</td>
                 <td>50%</td>
@@ -101,7 +103,7 @@
                 <td>007</td>
                 <td>36</td>
                 <td>90%</td>
-            </tr>
+            </tr> {% endcomment %}
         </table><br>
         <input type="button" class="submit" value="BACK" onclick="window.location.href='viewattendancehome.html' " />
     </div>

@@ -60,10 +60,10 @@
 
                 <div class="nav__menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}" class="nav__link">Home</a></li>
                         <li class="nav__item"><a href="{% url 'teacherhome' %}" class="nav__link">Mark Attendace</a></li>
                         <li class="nav__item"><a href="{% url 'viewattendance' %}" class="nav__link">View Attendace</a></li>
-                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link">Timetable</a></li>
+                        <li class="nav__item"><a href="{% url 'timetable' %}" class="nav__link active">Timetable</a></li>
 
                         {% if request.user.is_authenticated %}
                         
